@@ -1,0 +1,35 @@
+<!--pages/usercenter/use_record/index.wxml-->
+
+<wxs module="filter" src="record_status.wxs"></wxs>
+<view class="page-container">
+  <t-pull-down-refresh id="pull-down-refresh" value="{{pullDownRefreshing}}" normal-bar-height="{{200}}" max-bar-height="{{272}}" refreshTimeout="{{3000}}" background="#f5f5f5" use-loading-slot loading-size="60rpx" bind:refresh="onPullDownRefresh_" t-class-indicator="t-class-indicator" bindscrolltolower="onScrollToBottom">
+
+    <view class="card" wx:for="{{record_list}}" wx:key="id" wx:for-item="record" wx:for-index="oIndex">
+      <!-- 左侧图标 -->
+      <!-- 中间文字 -->
+
+      <image src="{{filter.get_status_icon(record.status)}}" class="going-image"></image>
+      <!-- 中间文字 -->
+      <view class="text-container">
+        <text class="title" style="color: {{ filter.get_status_color(record.status) }};">状态：{{ filter.get_status(record.status) }}</text>
+        <text class="subtitle">车辆编码：{{record.car_info.device_id}}</text>
+        <text class="subtitle">开始时间：{{record.begin_time}}</text>
+        <text class="subtitle">总共时长：{{record.minute}}分钟</text>
+        <text class="subtitle">还车地点：{{record.car_info.group.location}}</text>
+      </view>
+
+      <!-- 右侧按钮 -->
+      <view class="right-container">
+        <button class="card-button" data-item='{{record}}' wx:if="{{ record.status==1 || record.status==3}}" bind:tap="onReturnTap">还车</button>
+      </view>
+    </view>
+    <!-- 列表加载中/已全部加载 -->
+    <!-- <load-more wx:if="{{!pullDownRefreshing}}" list-is-empty="{{!record_list.length}}" status="{{listLoading}}" bindretry="onReTryLoad">
+      <view slot="empty" class="empty-wrapper">
+        <t-empty t-class="t-empty-text" src="{{emptyImg}}">暂无相关订单</t-empty>
+      </view>
+    </load-more> -->
+  </t-pull-down-refresh>
+</view>
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />

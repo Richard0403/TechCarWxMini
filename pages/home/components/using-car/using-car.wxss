@@ -1,0 +1,107 @@
+/* pages/home/components/using-car/using-car.wxss */
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: gray;
+}
+
+.on {
+  font-weight: bolder;
+  color: skyblue;
+  border-bottom: 4rpx solid skyblue;
+}
+
+.going-image {
+  width: 40px;
+  height: 40px;
+}
+
+/* 卡片整体样式 */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  /* 弧形背景 */
+  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  margin: 20rpx 0;
+}
+
+/* 左侧图标 */
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+/* 中间的文字容器 */
+.text-container {
+  flex: 1;
+  /* 占据剩余空间 */
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 上下排列的文字 */
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* 右侧的文字容器 */
+.right-container {
+  /* 占据剩余空间 */
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 5px;
+}
+
+.subtitle .red {
+  color: rgb(233, 24, 94);
+}
+
+/* 右侧按钮 */
+.card-button {
+  padding: 10rpx 30rpx;
+  background-color: #1aad19;
+  color: #fff;
+  margin-bottom: 20px;
+  border-radius: 20rpx;
+  /* 按钮圆角 */
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.usage-button {
+  padding: 10rpx 30rpx;
+  background-color: #1797a0;
+  color: #fff;
+  margin-bottom: 20px;
+  border-radius: 20rpx;
+  /* 按钮圆角 */
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+}

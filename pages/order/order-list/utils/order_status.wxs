@@ -1,0 +1,18 @@
+var filter = {
+  getOrderStatus: function (status) {
+    if (status == 0) {
+      return '未支付'
+    } else if (status == 1) {
+      return '已支付'
+    } else if (status == 2) {
+      return '售后中'
+    } else if (status == 3) {
+      return '已退款'
+    } else {
+      return '未知状态'
+    }
+  }
+}
+module.exports = {
+  get_status: filter.getOrderStatus
+}

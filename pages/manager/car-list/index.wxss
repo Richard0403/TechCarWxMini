@@ -1,0 +1,152 @@
+/* pages/manager/car-list/index.wxss */
+
+.jobtab {
+  display: flex;
+}
+
+.citybuild {
+  width: 82rpx;
+  height: 82rpx;
+  margin-right: 10rpx;
+}
+
+.container {
+  position: relative;
+  width: 160rpx;
+  height: 90rpx;
+  /* 根据需求设置高度 */
+}
+
+/* 背景图片样式 */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160rpx;
+  height: 90rpx;
+  z-index: 0;
+  /* 背景图放在最底层 */
+}
+
+/* 前景内容的容器 */
+.content {
+  position: relative;
+  z-index: 1;
+  /* 确保前景内容在背景图上 */
+  display: flex;
+  flex-direction: row;
+  /* 横向排列 */
+  justify-content: center;
+  /* 左右两边对齐 */
+  align-items: top;
+  /* 垂直居中 */
+  width: 100%;
+  height: 100%;
+  /* 设置内边距，防止内容靠边太紧 */
+  padding: 0rpx 0rpx;
+}
+
+/* 左侧图标样式 */
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 12rpx 0rpx;
+}
+
+/* 右侧红色文字样式 */
+.text {
+  color: green;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 18rpx 4rpx;
+}
+
+
+
+/* 卡片整体样式 */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  /* 弧形背景 */
+  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  margin: 20rpx 0;
+}
+
+/* 左侧图标 */
+.left-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.going-image {
+  width: 40px;
+  height: 40px;
+}
+
+/* 中间的文字容器 */
+.text-container {
+  flex: 1;
+  /* 占据剩余空间 */
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 上下排列的文字 */
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* 右侧的文字容器 */
+.right-container {
+  /* 占据剩余空间 */
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 5px;
+}
+
+.subtitle .red {
+  color: rgb(233, 24, 94);
+}
+
+/* 右侧按钮 */
+.card-button {
+  padding: 10rpx 30rpx;
+  background-color: #1aad19;
+  color: #fff;
+  margin-bottom: 20px;
+  border-radius: 100rpx;
+  /* 按钮圆角 */
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.usage-button {
+  padding: 10rpx 30rpx;
+  background-color: #1797a0;
+  color: #fff;
+  margin-bottom: 20px;
+  border-radius: 100rpx;
+  /* 按钮圆角 */
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+}

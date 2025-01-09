@@ -1,0 +1,43 @@
+<view style="text-align: center; color: #b9b9b9" wx:if="{{pageLoading}}">
+  <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color />
+</view>
+
+<view class="home-page-header" hidden="{{user.hide_user_info}}">
+  <text>手机号：{{user.phone}}</text>
+  <text hidden="{{ !device_id }}"> 设备编码：{{ device_id }}</text>
+</view>
+
+<view class="home-page-header">
+  <button type="primary" hidden="{{hideLoginBtn}}" class="home-scan-btn" bind:tap="loginCode">登录</button>
+  <button type="primary" class="home-scan-btn" bind:tap="scan_code">扫码</button>
+  <!-- <button type="primary" class="home-scan-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录</button> -->
+  <using-car bindreturntap="onReturnTap" usingRecord="{{using_car_record}}" wx:if="{{using_car_record}}" />
+
+</view>
+<view class="home-page-container">
+
+  <view>
+    <modal title="" hidden="{{hideGetPhoneDialog}}" confirm-text="" cancel-text="" open>
+      "需要获取您的手机号进行账号登录"
+      <checkbox-group bindchange="checkAgreeChange">
+        <view class="home05">
+          <checkbox class="changesize" value="cb" checked="{{agreementState}}" bindchnage color="#296EFF" />
+          <view class="home052">登录即同意 <text class="blue" data-service="service" bindtap="checkAgreement">《用户服务协议》</text>和<text class="blue" data-service="privacy" bindtap="checkAgreement">《隐私协议》</text> </view>
+        </view>
+      </checkbox-group>
+
+      <button type='primary' wx:if="{{agreementState==false}}" class="home-scan-btn" bindtap="handleAgree">授权登录</button>
+      <button type="primary" wx:else class="home-scan-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bind:tap="close_login">授权登录</button>
+      <button class="home-scan-btn" bind:tap="close_login">关闭</button>
+    </modal>
+    <modal title="" hidden="{{hideDutyTip}}" confirm-text="同意" cancel-text="取消" bindconfirm="confirmDuty" bindcancel="cancleDuty" open>
+      <text class="duty-color">您必须全程监督儿童使用车辆，<text class="duty-important">出现任何安全问题由您负责</text>。</text>
+    </modal>
+  </view>
+  <view class="goods-list-container">
+
+    <goods-list wr-class="goods-list-wrap" goodsList="{{goodsList}}" bind:click="goodClickHandle" bind:addcart="cartClickHandle" />
+    <load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
+    <t-toast id="t-toast" />
+  </view>
+</view>

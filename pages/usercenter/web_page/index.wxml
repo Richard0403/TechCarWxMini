@@ -1,0 +1,2 @@
+<!--pages/usercenter/web_page/index.wxml-->
+<web-view src="{{urlValue}}"></web-view>

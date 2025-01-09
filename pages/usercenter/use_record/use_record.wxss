@@ -1,0 +1,82 @@
+/* pages/usercenter/use_record/index.wxss */
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  /* 弧形背景 */
+  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  margin: 20rpx 10rpx;
+}
+
+/* 左侧图标 */
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+/* 中间的文字容器 */
+.text-container {
+  flex: 1;
+  /* 占据剩余空间 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 上下排列的文字 */
+.title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 25rpx;
+  color: #888;
+}
+
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}
+
+.page-container {
+  height: 105%;
+  width: 100%;
+}
+
+.going-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+/* 右侧按钮 */
+.card-button {
+  padding: 10rpx 30rpx;
+  background-color: #1aad19;
+  color: #fff;
+  border-radius: 20rpx;
+  /* 按钮圆角 */
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.list-loading {
+  height: 100rpx;
+}
+
+.empty-wrapper {
+  height: calc(100vh - 88rpx);
+}
+
+.t-empty-text {
+  font-size: 28rpx;
+  color: #999;
+}

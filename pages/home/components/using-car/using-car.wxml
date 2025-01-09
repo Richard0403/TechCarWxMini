@@ -1,0 +1,22 @@
+<!--pages/home/components/using-car/using-car.wxml-->
+<!--components/tab.wxml-->
+
+<view class="card">
+  <!-- 左侧图标 -->
+  <image src="/images/icon_going.png" class="going-image"></image>
+  <!-- 中间文字 -->
+  <view class="text-container">
+    <text class="title" style="color: {{usingRecord.status==1? '#333333':'#ff0000'}};">{{usingRecord.status==1? '正在使用的车辆':'时间已用完，请尽快还车'}}</text>
+    <text class="subtitle">车辆编码：{{usingRecord.car_info.device_id}}</text>
+    <text class="subtitle">开始时间：{{usingRecord.begin_time}}</text>
+    <text class="subtitle">总共时长：{{usingRecord.minute}}分钟(<text class="red">剩余{{usingRecord.rest_minute}}分钟</text>)</text>
+    <text class="subtitle">还车地点：{{usingRecord.car_info.group.location}}</text>
+  </view>
+
+  <!-- 右侧按钮 -->
+  <view class="right-container">
+    <button class="card-button" bind:tap="onReturnTap">还车</button>
+    <button class="usage-button" bind:tap="onUsageTap">教程</button>
+  </view>
+
+</view>

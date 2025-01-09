@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/usercenter/index",
+    "pages/usercenter/person-info/index",
+    "pages/usercenter/address/list/index",
+    "pages/usercenter/address/edit/index",
+    "pages/goods/list/index",
+    "pages/goods/details/index",
+    "pages/goods/category/index",
+    "pages/goods/search/index",
+    "pages/goods/result/index",
+    "pages/cart/index",
+    "pages/order/order-confirm/index",
+    "pages/order/receipt/index",
+    "pages/order/pay-result/index",
+    "pages/order/order-list/index",
+    "pages/order/order-detail/index",
+    "pages/goods/comments/index",
+    "pages/order/apply-service/index",
+    "pages/order/after-service-list/index",
+    "pages/order/after-service-detail/index",
+    "pages/goods/comments/create/index",
+    "pages/coupon/coupon-list/index",
+    "pages/coupon/coupon-detail/index",
+    "pages/coupon/coupon-activity-goods/index",
+    "pages/promotion-detail/index",
+    "pages/order/fill-tracking-no/index",
+    "pages/order/delivery-detail/index",
+    "pages/order/invoice/index",
+    "pages/usercenter/name-edit/index",
+    "pages/device/device",
+    "pages/usercenter/use_record/use_record",
+    "pages/usercenter/setting/index",
+    "pages/usercenter/web_page/index",
+    "pages/manager/car-list/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#FF5F15",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/goods/category/index",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/usercenter/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "requiredPrivateInfos": [
+    "chooseAddress",
+    "getLocation",
+    "startLocationUpdate",
+    "onLocationChange"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "该应用需要获取你的位置，进行车辆查找"
+    },
+    "scope.userInfo": {
+      "desc": "该应用需要获取你的手机号，进行登录"
+    }
+  }
+}

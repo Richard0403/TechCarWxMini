@@ -1,0 +1,39 @@
+<wxs module="filter" src="utils/order_status.wxs"></wxs>
+<view class="page-container">
+  <view class="tab-bar">
+    <view class="tab-bar__placeholder" />
+    <t-tabs t-class="tab-bar__inner" t-class-active="tab-bar__active" t-class-track="t-tabs-track" bind:change="onTabChange" value="{{status}}" style="position: fixed; top: 0; left: 0; z-index: 100">
+      <t-tab-panel wx:for="{{tabs}}" wx:for-index="index" wx:for-item="item" wx:key="index" label="{{item.text}}" value="{{item.key}}" />
+    </t-tabs>
+  </view>
+  <t-pull-down-refresh id="pull-down-refresh" value="{{pullDownRefreshing}}" normal-bar-height="{{200}}" max-bar-height="{{272}}" refreshTimeout="{{3000}}" background="#f5f5f5" use-loading-slot loading-size="60rpx" bind:refresh="onPullDownRefresh_" t-class-indicator="t-class-indicator">
+    <order-card wx:for="{{orderList}}" wx:key="id" wx:for-item="order" wx:for-index="oIndex" order="{{order}}" defaultShowNum="{{3}}" data-order="{{order}}" bindcardtap="onOrderCardTap" useLogoSlot>
+      <view slot="top-left" class="order-number">
+        <text decode>订单号&nbsp;</text>
+        {{order.trade_no}}
+      </view>
+      <specs-goods-card data="{{order.product}}" no-top-line="{{gIndex === 0}}" />
+      <view slot="more">
+
+        <view class="price-total">
+          <text decode="{{true}}">创建于：{{order.create_time}}&nbsp;&nbsp;</text>
+          <text class="bold-price" decode="{{true}}">应付&nbsp;</text>
+          <price fill class="real-pay" price="{{order.pay_amount + ''}}" decimalSmaller />
+          <text class="bold-price">状态：</text>
+          <text class="real-pay">{{ filter.get_status(order.status) }}</text>
+        </view>
+        <!-- 订单按钮栏 -->
+        <order-button-bar order="{{order}}" bindrefresh="onRefresh" data-order="{{order}}" />
+      </view>
+    </order-card>
+    <!-- 列表加载中/已全部加载 -->
+    <load-more wx:if="{{!pullDownRefreshing}}" list-is-empty="{{!orderList.length}}" status="{{listLoading}}" bindretry="onReTryLoad">
+      <!-- 空态 -->
+      <view slot="empty" class="empty-wrapper">
+        <t-empty t-class="t-empty-text" src="{{emptyImg}}">暂无相关订单</t-empty>
+      </view>
+    </load-more>
+  </t-pull-down-refresh>
+</view>
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />

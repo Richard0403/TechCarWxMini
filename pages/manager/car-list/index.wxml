@@ -1,0 +1,42 @@
+<!--pages/manager/car-list/index.wxml-->
+
+<view>
+
+</view>
+<t-dropdown-menu>
+  <t-dropdown-item options="{{group_list}}" value="{{group_select_value}}" keys="{{group_keys}}" bindchange="onGroupChange" />
+</t-dropdown-menu>
+
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" padding="90" show-location style="width: 100%; height: 500px;" enable-markers-click bindcallouttap="callouttap">
+  <cover-view slot="callout">
+    <block wx:for="{{markers}}" wx:key="index">
+      <cover-view marker-id="{{item.id}}" class="container">
+        <cover-image class="background-image" src="{{select_mark.id===item.id?'/images/ic_mark_bg_select.png':'/images/ic_mark_bg.png' }}" mode="scaleToFill" />
+        <cover-view class="content">
+          <cover-image class="icon" src="/images/ic_battery_new.png" mode="aspectFit" />
+          <cover-view class="text" style="color: {{item.customCallout.battery_electric < 30? 'red': 'blue'}};">{{item.customCallout.battery_electric}}%</cover-view>
+        </cover-view>
+      </cover-view>
+    </block>
+  </cover-view>
+</map>
+<view class="card">
+  <!-- 左侧图标 -->
+  <image src="/images/ic_car.png" class="going-image"></image>
+  <!-- 中间文字 -->
+  <view class="text-container" wx:if="select_mark">
+    <text class="subtitle">车辆编码：{{select_mark.device_id}}</text>
+    <text class="subtitle" style="color: {{select_mark.battery_electric< 30? 'red': 'blue'}};">剩余电量：{{select_mark.battery_electric}} %</text>
+    <text class="subtitle" style="color: {{select_mark.battery_electric< 30? 'red': 'blue'}};">电池电压：{{select_mark.voltage}}</text>
+    <text class="subtitle">所属地点：{{select_mark.group.location}}</text>
+  </view>
+
+  <!-- 右侧按钮 -->
+  <view class="right-container">
+    <button class="usage-button" bind:tap="onNavigationTap">导航过去</button>
+    <button class="card-button" bind:tap="onChangeBatteryTap">车辆换电</button>
+  </view>
+
+</view>
+
+<t-toast id="t-toast" />
